@@ -1,3 +1,8 @@
 # *Data-Structures-and-Algorithms*
 
-This repository contains all of my problems set that encountered when I was in 2nd year college.
+> This repository consist of **Data Structures** programs that I encountered in my 2nd-year college. It tackles about intermediate Data Structures and Algorithms that a Computer Science student should know.
+
+## Repository Content
+-
+-
+-
