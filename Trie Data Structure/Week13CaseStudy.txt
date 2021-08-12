@@ -1,0 +1,54 @@
+import java.io.*;
+
+public class Week13CaseStudy {
+
+	static BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
+	static Trie t = new Trie();
+	
+	public static void main(String[] args) {
+
+		try {
+			
+			insertToTrie();
+			traverseTrie();
+		} catch (Exception e) {}
+		finally {
+			System.out.print("\n\nEnd of program.");
+		}
+	}
+	
+	/**
+	 * Function that inserts an element to the Trie.
+	 * 
+	 * @throws IOException
+	 */
+	private static void insertToTrie() throws IOException {
+		
+		System.out.print("\nHow many string do you prefer? ");
+		int noOfStrings = Integer.parseInt(console.readLine());
+		
+		for (int i = 1; i <= noOfStrings; i++) {
+			
+			t.insert(console.readLine().toLowerCase());
+		}
+	}
+	
+	/**
+	 * Function that traverse a Trie
+	 * 
+	 * @throws IOException
+	 */
+	private static void traverseTrie() throws IOException {
+		
+		char choice = ' ';
+		
+		do {
+			
+			t.Display();
+			
+			System.out.print("\nTry again? ");
+			choice = console.readLine().charAt(0);
+			
+		} while (choice == 'y');
+	}
+}

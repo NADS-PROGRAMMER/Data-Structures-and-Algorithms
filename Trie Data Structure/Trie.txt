@@ -1,0 +1,55 @@
+import java.util.*;
+
+public class Trie {
+	
+	private Node root = new Node(" ");
+	
+	public void insert(String str) {
+		
+		insertImplementation(str, this.root, 0);
+	}
+	private void insertImplementation(String str, Node node, int index) {
+
+		if (index > str.length() - 1) {
+			return;
+		}
+		
+		Node newNode = new Node(String.valueOf(str.charAt(index))); // Get the character to the string
+		
+		if (!node.contains(newNode)) {
+			
+			node.getList().add(newNode);
+			this.insertImplementation(str, newNode, index + 1);
+		}
+		else {
+			
+			insertImplementation(str, node.getEqualNode(String.valueOf(str.charAt(index))), index + 1);
+		}
+	}
+	
+	public Node getRoot() {
+		
+		return this.root;
+	}
+	
+	public void Display() {
+		
+		Scanner console = new Scanner(System.in);
+		Node node = this.root;
+		String str = "";
+		
+		while (node.getList().size() != 0) {
+			
+			System.out.print("\nEnter your choice " + "( " + node.displayNodeContent() + "): ");
+			String choice = console.next().toLowerCase();
+			
+			str += choice + " ";
+			node = node.getEqualNode(choice);
+			while (node.getList().size() == 1) {
+				str += node.getList().get(0).getData() + " ";
+				node = node.getEqualNode(node.getList().get(0).getData());
+			}
+			System.out.println("DISPLAY: " + str);
+		}
+	}
+} 
